@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>HW1</title>
+    
+</head>
+<body>
+    
+
+    <script>
+var car = {
+  manufacturer: "UAZ",
+  model: "Patriot",
+  year: 2019,
+  averageSpeed: 50,
+  showInfo: function() {
+    alert("Производитель: " + this.manufacturer);
+    alert("Модель: " + this.model);
+    alert("Год выпуска: " + this.year);
+    alert("Средняя скорость: " + this.averageSpeed + " км/ч");
+  },
+  calculateTime: function(distance) {
+    var totalHours = distance / this.averageSpeed;
+    var restCount = Math.floor(totalHours / 4);
+    var totalTime = totalHours + restCount;
+    
+    alert("Для преодоления расстояния " + distance + " км со средней скоростью " + this.averageSpeed + " км/ч потребуется " + totalTime + " ч");
+  }
+};
+
+car.showInfo();
+car.calculateTime(800);
+
+   
+    </script>
+</body>
+</html>

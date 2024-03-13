@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>HW12</title>
+    
+</head>
+<body>
+    
+
+    <script>
+var Fraction = {
+  numerator: 0,
+  denominator: 1,
+  add: function(fraction) {
+    var result = Object.create(Fraction);
+    result.numerator = this.numerator * fraction.denominator + this.denominator * fraction.numerator;
+    result.denominator = this.denominator * fraction.denominator;
+    return result.simplify();
+  },
+  subtract: function(fraction) {
+    var result = Object.create(Fraction);
+    result.numerator = this.numerator * fraction.denominator - this.denominator * fraction.numerator;
+    result.denominator = this.denominator * fraction.denominator;
+    return result.simplify();
+  },
+  multiply: function(fraction) {
+    var result = Object.create(Fraction);
+    result.numerator = this.numerator * fraction.numerator;
+    result.denominator = this.denominator * fraction.denominator;
+    return result.simplify();
+  },
+  divide: function(fraction) {
+    var result = Object.create(Fraction);
+    result.numerator = this.numerator * fraction.denominator;
+    result.denominator = this.denominator * fraction.numerator;
+    return result.simplify();
+  },
+  simplify: function() {
+    var gcd = this.gcd(this.numerator, this.denominator);
+    this.numerator /= gcd;
+    this.denominator /= gcd;
+    return this;
+  },
+  gcd: function(a, b) {
+    if (b === 0) {
+      return a;
+    }
+    return this.gcd(b, a % b);
+  },
+  showFraction: function() {
+    alert(this.numerator + "/" + this.denominator);
+  }
+};
+
+var fraction1 = Object.create(Fraction);
+fraction1.numerator = 3;
+fraction1.denominator = 4;
+
+var fraction2 = Object.create(Fraction);
+fraction2.numerator = 1;
+fraction2.denominator = 2;
+
+var sum = fraction1.add(fraction2);
+sum.showFraction();
+
+var difference = fraction1.subtract(fraction2);
+difference.showFraction();
+
+var product = fraction1.multiply(fraction2);
+product.showFraction();
+
+var quotient = fraction1.divide(fraction2);
+quotient.showFraction();
+
+
+   
+    </script>
+</body>
+</html>

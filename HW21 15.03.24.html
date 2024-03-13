@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>HW21</title>
+    
+</head>
+<body>
+    
+
+    <script>
+	
+class Circle {
+  constructor(radius) {
+    this._radius = radius;
+  }
+
+  get radius() {
+    return this._radius;
+  }
+
+  set radius(value) {
+    this._radius = value;
+  }
+
+  get diameter() {
+    return this._radius * 2;
+  }
+
+  calculateArea() {
+    return Math.PI * Math.pow(this._radius, 2);
+  }
+
+  calculateCircumference() {
+    return 2 * Math.PI * this._radius;
+  }
+}
+
+// Пример использования класса
+
+var circle = new Circle(5);
+
+alert("Радиус окружности: " + circle.radius);
+alert("Диаметр окружности: " + circle.diameter);
+alert("Площадь окружности: " + circle.calculateArea());
+alert("Длина окружности: " + circle.calculateCircumference());
+circle.radius = 10;
+alert("Новый радиус: " + circle.radius);
+alert("Новый диаметр: " + circle.diameter);
+alert("Новая площадь: " + circle.calculateArea());
+alert("Новая длина: " + circle.calculateCircumference());
+
+
+   
+    </script>
+</body>
+</html>

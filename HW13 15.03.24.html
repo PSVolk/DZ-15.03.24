@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>HW13</title>
+    
+</head>
+<body>
+    
+
+    <script>
+	
+var Time = {
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  showTime: function() {
+    var formattedTime = this.formatDigits(this.hours) + ":" + this.formatDigits(this.minutes) + ":" + this.formatDigits(this.seconds);
+    alert(formattedTime);
+  },
+  addSeconds: function(seconds) {
+    this.seconds += seconds;
+    this.adjustTime();
+  },
+  addMinutes: function(minutes) {
+    this.minutes += minutes;
+    this.adjustTime();
+  },
+  addHours: function(hours) {
+    this.hours += hours;
+    this.adjustTime();
+  },
+  adjustTime: function() {
+    this.minutes += Math.floor(this.seconds / 60);
+    this.seconds %= 60;
+    this.hours += Math.floor(this.minutes / 60);
+    this.minutes %= 60;
+    this.hours %= 24;
+  },
+  formatDigits: function(value) {
+    if (value < 10) {
+      return "0" + value;
+    }
+    return value;
+  }
+};
+
+var time = Object.create(Time);
+time.hours = 20;
+time.minutes = 30;
+time.seconds = 45;
+
+time.showTime(); // Вывод времени на экран
+time.addSeconds(30); // Изменение времени на 30 секунд
+time.showTime(); // Вывод времени на экран
+time.addMinutes(25); // Изменение времени на 25 минут
+time.showTime(); // Вывод времени на экран
+time.addHours(6); // Изменение времени на 6 часов
+time.showTime(); // Вывод времени на экран
+
+
+   
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>HW23</title>
+    
+</head>
+<body>
+    
+
+    <script>
+	
+class CssClass {
+  constructor(className) {
+    this.className = className;
+    this.styles = [];
+  }
+
+  setStyle(style) {
+    this.styles.push(style);
+  }
+
+  removeStyle(style) {
+    const index = this.styles.indexOf(style);
+    if (index > -1) {
+      this.styles.splice(index, 1);
+    }
+  }
+
+  getCss() {
+    const cssCode = `.${this.className} {
+      ${this.styles.join('\n')}
+    }`;
+    return cssCode;
+  }
+}
+
+// Пример использования класса
+
+const myClass = new CssClass('my-class');
+myClass.setStyle('color: red');
+myClass.setStyle('font-size: 16px');
+
+alert(myClass.getCss());
+
+myClass.removeStyle('color: red');
+alert(myClass.getCss());
+
+   
+    </script>
+</body>
+</html>
